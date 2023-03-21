@@ -57,6 +57,15 @@ local plugins = {
     "folke/which-key.nvim",
     enabled = true,
   },
+
+  {
+    "folke/todo-comments.nvim",
+    lazy = true,
+    dependencies = { "nvim-lua/plenary.nvim" },
+    config = function()
+      require("todo-comments").setup {}
+    end,
+  },
 }
 
 return plugins
