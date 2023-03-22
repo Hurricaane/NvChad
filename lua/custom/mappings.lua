@@ -13,8 +13,13 @@ M.disabled = {
     ["<Esc>"] = "",
     ["<C-n>"] = "",
     ["<leader>e"] = "",
+    ["<leader>w"] = "",
+    ["<leader>wa"] = "",
+    ["<leader>wl"] = "",
+    ["<leader>wr"] = "",
     ["<leader>wK"] = "",
     ["<leader>wk"] = "",
+    ["<leader>q"] = "",
     ["<leader>h"] = "",
     ["<leader>v"] = "",
     ["<leader>/"] = "",
@@ -40,6 +45,7 @@ M.general = {
   n = {
     -- Saving
     ["<leader>w"] = { "<cmd> w <CR>", "Save file" },
+    ["<leader>Q"] = { "<cmd> q! <CR>", "Quit file without saving" },
     ["<leader>q"] = { "<cmd> wq <CR>", "Save file and quit" },
 
     -- Remove highlighting
@@ -47,6 +53,13 @@ M.general = {
 
     -- Dashboard
     ["<leader>a"] = { "<cmd> Nvdash <CR>", "Open Nvdash" },
+
+    -- Start and stop LSP Server
+    ["<leader>ss"] = { "<cmd> LspStart <CR>", "Start LSP server"},
+    ["<leader>st"] = { "<cmd> LspStop <CR>", "Stop LSP server"},
+
+    -- Copy into clipboard buffer
+    ["<leader>y"] = { '"+y', 'Copy to clipboard' },
   },
 }
 
