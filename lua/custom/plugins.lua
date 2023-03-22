@@ -4,7 +4,9 @@ local overrides = require("custom.configs.overrides")
 ---@type NvPluginSpec[]
 local plugins = {
 
-  -- Override plugin definition options
+  ---------------------------------------------
+  -- Override plugin definition options here --
+  ---------------------------------------------
 
   {
     "neovim/nvim-lspconfig",
@@ -23,7 +25,6 @@ local plugins = {
     end, -- Override to setup mason-lspconfig
   },
 
-  -- override plugin configs
   {
     "williamboman/mason.nvim",
     opts = overrides.mason
@@ -38,13 +39,13 @@ local plugins = {
   },
 
   {
-    "nvim-treesitter/playground",
-    lazy = false,
+    "nvim-tree/nvim-tree.lua",
+    opts = overrides.nvimtree,
   },
 
   {
-    "nvim-tree/nvim-tree.lua",
-    opts = overrides.nvimtree,
+    "folke/which-key.nvim",
+    enabled = true,
   },
 
   -- To make a plugin not be loaded
@@ -53,19 +54,38 @@ local plugins = {
   --   enabled = false
   -- },
 
+  --------------------------
+  -- Add new plugins here --
+  --------------------------
+
+  -- Treesitter playground to check syntax highlighting
   {
-    "folke/which-key.nvim",
-    enabled = true,
+    "nvim-treesitter/playground",
+    lazy = false,
   },
 
+  -- Todo plugin to highlight TODOs (and other things) in the comments
   {
     "folke/todo-comments.nvim",
-    lazy = true,
+    lazy = false,
     dependencies = { "nvim-lua/plenary.nvim" },
     config = function()
       require("todo-comments").setup {}
     end,
   },
+
+  -- Add, change or delete surrounding pairs
+  {
+    "kylechui/nvim-surround",
+    version = "*", -- Use for stability; omit to use `main` branch for the latest features
+    event = "VeryLazy",
+    config = function()
+        require("nvim-surround").setup({
+            -- Configuration here, or leave empty to use defaults
+        })
+    end
+  },
+
 }
 
 return plugins
