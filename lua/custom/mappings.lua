@@ -12,6 +12,10 @@ M.disabled = {
   n = {
     ["<Esc>"] = "",
     ["<C-n>"] = "",
+    ["<C-h>"] = "",
+    ["<C-j>"] = "",
+    ["<C-k>"] = "",
+    ["<C-l>"] = "",
     ["<leader>e"] = "",
     ["<leader>w"] = "",
     ["<leader>wa"] = "",
@@ -23,6 +27,7 @@ M.disabled = {
     ["<leader>h"] = "",
     ["<leader>v"] = "",
     ["<leader>/"] = "",
+    ['<leader>ip'] = "",
   },
 
   -- Visual mode
@@ -60,6 +65,9 @@ M.general = {
 
     -- Copy into clipboard buffer
     ["<leader>y"] = { '"+y', 'Copy to clipboard' },
+
+    -- Icon picker
+    ['<leader>ip'] = { "<cmd> IconPickerYank <CR>", "Open Icon Picker (Yank) in Normal Mode" }
   },
 }
 
